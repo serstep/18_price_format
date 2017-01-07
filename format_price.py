@@ -2,13 +2,18 @@ import re, sys
 
 
 def format_price(price):
-
-    if re.fullmatch(r"([\d]{1,10}\.[\d]{1,6})", price) is None:
+    price_match = re.fullmatch(r"([\d]{1,10})(\.[\d]{1,6})?", price)
+    if price_match is None:
         return None
 
-    aparted_price = price.split(".")
+    aparted_price = price_match.groups()
+
     integer_part = int(aparted_price[0])
-    fractional_part = int(aparted_price[1][:2])
+
+    if aparted_price[1] is not None:
+        fractional_part = int(aparted_price[1].replace(".", "")[:2])
+    else:
+        fractional_part = 0
 
     if fractional_part == 0 :
         return "{:,}".format(integer_part).replace(",", " ")

@@ -6,7 +6,7 @@ Script for formatting prices from 975843.230000 to 975 843.23 .
 
     $python3 format_price.py price
     
-price parameter must be in format [integer_part.fractional_part]. If you want to format price without fractional part, just type integer_part.00 like 34.00 or 34.0.
+price parameter must be in format [integer_part.fractional_part]. If you want to format price without fractional part, just type integer_part or integer_patr.00 like 34 , 34.00 or 34.0 . Keep in mind that input in format integer_part.nothing like 34. is invalid.
 
 You also can use format_data() from script in your code.
     
